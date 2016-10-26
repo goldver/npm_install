@@ -49,7 +49,9 @@ end
 
 # restarts an eye service
 execute "eye_restart" do
-    command       "eye r all"
-    user          "deploy"
-    group         "deploy"
+   command       "eye r all"
+   cwd           "/home/deploy"
+   user          "deploy"
+   group         "deploy"
+   environment({'HOME' => '/home/deploy', 'USER' => 'deploy'})
 end
