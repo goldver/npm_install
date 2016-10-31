@@ -55,3 +55,20 @@ execute "eye_restart" do
    group         "deploy"
    environment({'HOME' => '/home/deploy', 'USER' => 'deploy'})
 end
+
+# # builds Npm
+# execute 'npm_run_build' do
+    # command 'cd /var/www/projects/current && npm install'
+    # user 'deploy'
+    # group 'deploy'
+# end
+
+# # runs webpack precompile
+# execute "webpack_precompile" do
+    # command       "bundle exec rake webpack:compile"
+    # cwd           "/var/www/projects/current"
+    # user          "deploy"
+    # group         "deploy"
+    # environment({'RAILS_ENV' => node['npm_install']['deploy_env']})
+    # Chef::Log.info("### Your RAILS_ENV: '#{node['npm_install']['deploy_env']}' ###")
+# end
